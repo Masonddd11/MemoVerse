@@ -1,5 +1,12 @@
-export interface FolderProps {
-  id: number;
-  name: string;
-  parent_folder_id: number | null;
+
+
+
+
+export interface FileProps {
+  title: string;
+  parent_file_id?: string;
+  userId: string;
+  content?: string;
+  _id: string;
+  _creationTime: number;
 }

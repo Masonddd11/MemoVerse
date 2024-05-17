@@ -1,6 +1,8 @@
 import Image from "next/image"
 import NavBtn from "./NavBtn"
 
+
+
 // icons
 import { StickyNote } from 'lucide-react';
 import { AreaChart } from 'lucide-react';
@@ -11,9 +13,9 @@ import { useUser } from "@clerk/clerk-react";
 
 function Navigation() {
 
-  const {user} = useUser();
+  const { user } = useUser();
   return (
-    <aside className="py-4 h-screen overflow-y-auto relative flex w-60 flex-col z-[999] border-r-2 border-slate-300 justify-start items-start">
+    <aside className=" h-screen relative w-full z-[999]">
       <div className="flex justify-center items-center">
         <div className="relative w-[75px] h-[75px]">
           <Image src="/company-icon-no-text.jpeg" fill alt='icon' className='object-contain' />
@@ -33,6 +35,8 @@ function Navigation() {
         <NavBtn name='Analytics' icon={<AreaChart />} link='/dashboard/analytics' />
       </div>
     </aside>
+
+
   )
 }
 
