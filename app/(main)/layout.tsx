@@ -4,6 +4,7 @@ import Spinner from "@/components/Spinner";
 import { useConvexAuth } from "convex/react";
 import { useRouter } from "next/navigation";
 import Navigation from "./_components/Navigation";
+import NoteList from "./_components/NoteList";
 
 import {
   ResizableHandle,
@@ -39,24 +40,29 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     //     {children}
     //   </main>
     // </div>
-    <div className="flex flex-col">
-      <ResizablePanelGroup
-        direction="horizontal"
-        className="min-h-screen max-w-screen rounded-lg border"
-      >
-        <ResizablePanel defaultSize={25} minSize={10} maxSize={30}>
-          <div className="flex h-screen items-center justify-center">
-              <Navigation />
-          </div>
-        </ResizablePanel>
-        <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={75}>
-          <div className="flex h-full items-center justify-center p-6">
-            {children}
-          </div>
-        </ResizablePanel>
-      </ResizablePanelGroup>
-    </div>
+
+
+      <div className="flex">
+        
+        <div className="flex-shrink">
+          <Navigation />
+        </div>
+
+        <ResizablePanelGroup
+          direction="horizontal"
+          className="min-h-screen max-w-screen rounded-lg border"
+        >
+          <ResizablePanel defaultSize={25} minSize={10} maxSize={30}>
+            <NoteList />
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={75}>
+            <div className="flex h-full items-center justify-center p-6">
+              {children}
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </div>
   );
 };
 

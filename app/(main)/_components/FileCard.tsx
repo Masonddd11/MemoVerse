@@ -13,26 +13,26 @@ import {
 import Link from "next/link";
 
 import { Dot } from 'lucide-react';
+import { Separator } from "@radix-ui/react-dropdown-menu";
 
 interface FileCardProps {
   title: string;
   _creationTime: number;
-  _id:string;
+  _id: string;
 }
 
-function FileCard({ _id,title, _creationTime }: FileCardProps) {
+function FileCard({ _id, title, _creationTime }: FileCardProps) {
   return (
-    <Card className="flex overflow-hidden">
-      <Dot size={30} className="mt-5 text-slate-400" />
-      <div className="hover:text-gray-600 hover:cursor-pointer">
-        <CardHeader>
-          <Link href={`/dashboard/file/${_id}`}>
-            <CardTitle className="flex">{title}</CardTitle>
-          </Link>
+    <Link href={`/dashboard/file/${_id}`}>
+      <div className="bg-white flex hover:bg-slate-300">
+        <Dot size={30} className=" text-slate-400" />
+        <div className="hover:text-gray-600 hover:cursor-pointer">
+          <h1 className="flex font-bold">{title}</h1>
           <CardDescription>{new Date(_creationTime).toLocaleString()}</CardDescription>
-        </CardHeader>
+        </div>
       </div>
-    </Card>
+    </Link>
+
   )
 }
 

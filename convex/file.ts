@@ -34,12 +34,7 @@ export const createFile = mutation({
 
 export const readFile = query({
   handler: async (ctx) => {
-    const identity = await ctx.auth.getUserIdentity();
-    if (!identity) {
-      throw new Error("Not authenticated");
-    }
-    const file = await ctx.db.query("file").collect();
-
-    return file;
+    const files = await ctx.db.query("file").collect();
+    return files;
   },
 });
