@@ -6,11 +6,14 @@ import { useRouter } from "next/navigation";
 import Navigation from "./_components/Navigation";
 import NoteList from "./_components/NoteList";
 
+
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
+
+
 
 
 
@@ -57,7 +60,7 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={75}>
-            <div className="flex h-full items-center justify-center p-6">
+            <div className="flex h-full items-start justify-start p-6">
               {children}
             </div>
           </ResizablePanel>
