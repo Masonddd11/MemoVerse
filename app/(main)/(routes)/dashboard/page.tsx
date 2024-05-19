@@ -23,8 +23,6 @@ import { useUser } from "@clerk/clerk-react";
 
 function DashBoard() {
 
-  const { user } = useUser();
-  const userId = user?.id;
 
 
   const create = useMutation(api.file.createFile);
